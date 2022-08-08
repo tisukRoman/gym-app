@@ -5,12 +5,13 @@ import Logo from '../assets/images/Logo.png';
 const Navbar = () => {
   return (
     <Stack
-      px='20px'
+      px={2}
       direction='row'
       justifyContent='space-around'
+      alignItems='center'
       sx={{
-        gap: ['40px', '122px'],
-        mt: ['20px', '32px'],
+        gap: [5, 16],
+        mt: [2, 4],
         justifyContent: 'none',
       }}
     >
@@ -31,7 +32,7 @@ const Navbar = () => {
           }}
         />
       </Link>
-      <Stack direction='row' gap='40px' fontSize='24px' alignItems='baseline'>
+      <Stack direction='row' gap={5} fontSize={24} alignItems='baseline'>
         <Link
           to='/'
           style={{

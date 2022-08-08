@@ -5,11 +5,10 @@ import '../App.css';
 const HeroBanner = () => {
   return (
     <Box
-      p='20px'
       position='relative'
       sx={{
         mt: [10, 20, 27],
-        ml: 5,
+        ml: 4,
       }}
     >
       <Typography
@@ -32,7 +31,7 @@ const HeroBanner = () => {
         Sweat, Smile <br />
         And Repeat
       </Typography>
-      <Typography lineHeight='40px' fontSize='20px'>
+      <Typography lineHeight='40px' fontSize={20}>
         Check Out The Most Effective Exercises
       </Typography>
       <Button
@@ -48,11 +47,11 @@ const HeroBanner = () => {
         Explore Exercises
       </Button>
       <Typography
-        mt={1}
         color='#ff2625'
-        fontSize='210px'
+        fontSize={210}
         fontWeight='600'
         sx={{
+          mt: 1,
           opacity: 0.1,
           display: { xs: 'none', lg: 'block' },
         }}
