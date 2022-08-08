@@ -1,7 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import HeroBannerImage from '../assets/images/banner.png';
 import '../App.css';
-import { fontSize } from '@mui/system';
 
 const HeroBanner = () => {
   return (
@@ -9,18 +8,25 @@ const HeroBanner = () => {
       p='20px'
       position='relative'
       sx={{
-        mt: { lg: '212px', sm: '80px', xs: '40px' },
-        ml: { sm: '50px' },
+        mt: [10, 20, 27],
+        ml: 5,
       }}
     >
-      <Typography mb='20px' color='#ff2625' fontWeight='600' fontSize='36px'>
+      <Typography
+        mb={2}
+        color='#ff2625'
+        fontWeight='600'
+        sx={{
+          fontSize: [32, 34, 36],
+        }}
+      >
         Fitness Club
       </Typography>
       <Typography
         fontWeight='700'
-        mb='20px'
+        mb={2}
         sx={{
-          fontSize: { lg: '54px', sm: '52px', xs: '50px' },
+          fontSize: [50, 52, 54],
         }}
       >
         Sweat, Smile <br />
@@ -33,18 +39,22 @@ const HeroBanner = () => {
         href='#exercises'
         variant='contained'
         color='error'
-        sx={{ mt: '26px', fontSize: '18px' }}
+        sx={{
+          mt: 4,
+          fontSize: 18,
+          fontFamily: 'sans-serif',
+        }}
       >
         Explore Exercises
       </Button>
       <Typography
-        mt='4px'
+        mt={1}
         color='#ff2625'
         fontSize='210px'
         fontWeight='600'
         sx={{
           opacity: 0.1,
-          display: { lg: 'block', xs: 'none' },
+          display: { xs: 'none', lg: 'block' },
         }}
       >
         Exercise
