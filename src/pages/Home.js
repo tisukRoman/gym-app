@@ -1,7 +1,12 @@
+import { Box } from '@mui/material';
+import HeroBanner from '../components/HeroBanner';
+
 const Home = () => {
   return (
-    <div></div>
-  )
-}
+    <Box>
+      <HeroBanner />
+    </Box>
+  );
+};
 
-export default Home
+export default Home;
