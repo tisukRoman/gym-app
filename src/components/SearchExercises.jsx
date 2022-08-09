@@ -1,12 +1,35 @@
+import { useState, useEffect } from 'react';
 import { Button, Stack, TextField, Typography } from '@mui/material';
-import { useState } from 'react';
+import { exerciseOptions, fetchData } from '../utils/fetchData';
 
-const SearchPanel = () => {
+const SearchExercises = () => {
   const [searchValue, setSearchValue] = useState('');
+  const [exercises, setExercises] = useState([]);
+  const [bodyParts, setBodyParts] = useState([]);
+
+  useEffect(() => {
+    async function loadBodyParts() {
+      const bodyData = await fetchData('/bodyPartList', exerciseOptions);
+      setBodyParts(['all', ...bodyData]);
+    }
+    loadBodyParts();
+  }, []);
+
+  const onChangeValue = (e) => {
+    setSearchValue(e.target.value.toLowerCase());
+  };
 
   const onSearch = async () => {
     if (searchValue.trim()) {
-      console.log('FETCH DATA');
+      const exercises = await fetchData('', exerciseOptions);
+      const filtered = exercises.filter(
+        (exercise) =>
+          exercise.name.toLowerCase().includes(searchValue) ||
+          exercise.target.toLowerCase().includes(searchValue) ||
+          exercise.equipment.toLowerCase().includes(searchValue) ||
+          exercise.bodyPart.toLowerCase().includes(searchValue)
+      );
+      setExercises(filtered);
     }
   };
 
@@ -34,7 +57,7 @@ const SearchPanel = () => {
         }}
       >
         <TextField
-          onChange={(e) => setSearchValue(e.target.value)}
+          onChange={onChangeValue}
           value={searchValue}
           placeholder='Search Exercises'
           fullWidth
@@ -61,4 +84,4 @@ const SearchPanel = () => {
   );
 };
 
-export default SearchPanel;
+export default SearchExercises;

@@ -1,12 +1,12 @@
 import { Box } from '@mui/material';
 import HeroBanner from '../components/HeroBanner';
-import SearchPanel from '../components/SearchPanel';
+import SearchExercises from '../components/SearchExercises';
 
 const Home = () => {
   return (
     <Box>
       <HeroBanner />
-      <SearchPanel />
+      <SearchExercises />
       <Box height={300}></Box>
     </Box>
   );
