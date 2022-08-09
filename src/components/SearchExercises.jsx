@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Button, Stack, TextField, Typography } from '@mui/material';
 import { exerciseOptions, fetchData } from '../utils/fetchData';
+import HorizontalScrollbar from './HorizontalScrollbar';
 
-const SearchExercises = () => {
+const SearchExercises = ({ setExercises }) => {
   const [searchValue, setSearchValue] = useState('');
-  const [exercises, setExercises] = useState([]);
   const [bodyParts, setBodyParts] = useState([]);
 
   useEffect(() => {
@@ -12,12 +12,8 @@ const SearchExercises = () => {
       const bodyData = await fetchData('/bodyPartList', exerciseOptions);
       setBodyParts(['all', ...bodyData]);
     }
-    loadBodyParts();
+   // loadBodyParts();
   }, []);
-
-  const onChangeValue = (e) => {
-    setSearchValue(e.target.value.toLowerCase());
-  };
 
   const onSearch = async () => {
     if (searchValue.trim()) {
@@ -31,6 +27,10 @@ const SearchExercises = () => {
       );
       setExercises(filtered);
     }
+  };
+
+  const onChangeValue = (e) => {
+    setSearchValue(e.target.value.toLowerCase());
   };
 
   return (
@@ -80,6 +80,7 @@ const SearchExercises = () => {
           Search
         </Button>
       </Stack>
+      <HorizontalScrollbar data={bodyParts} />
     </Stack>
   );
 };
