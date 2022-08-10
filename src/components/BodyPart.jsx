@@ -1,13 +1,16 @@
 import { Stack, Typography } from '@mui/material';
+import { useBodyParts } from '../hooks/useBodyParts';
 import GymIcon from '../assets/icons/gym.png';
-import '../App.css';
 
 const BodyPart = ({ children }) => {
+  const { selectedBodyPart, setSelectedBodyPart } = useBodyParts();
+
   return (
     <Stack
+      onClick={() => setSelectedBodyPart(children)}
       sx={{
         m: '0 40px',
-        border: 'none',
+        borderBottom: selectedBodyPart === children ? '3px solid #ff2625' : '',
         cursor: 'pointer',
         bgcolor: '#fff',
         width: 270,

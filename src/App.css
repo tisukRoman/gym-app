@@ -87,7 +87,8 @@ body {
 
 .exercise-card:hover,
 .bodyPart-card:hover {
-  transform: scale(1.1, 1.1);
+  transform: scale(1.1, 1.1) translateY(-5%);
+  border-bottom: 3px solid #ff2625;
 }
 
 .search-btn:hover {

@@ -1,5 +1,5 @@
-const Exercises = ({ exercises }) => {
-  return <div>{exercises}</div>;
+const Exercises = () => {
+  return <div></div>;
 };
 
 export default Exercises;

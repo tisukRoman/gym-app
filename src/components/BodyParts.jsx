@@ -1,12 +1,10 @@
 import { Box } from '@mui/material';
+import { useBodyParts } from '../hooks/useBodyParts';
 import HorizontalScrollbar from './HorizontalScrollbar';
 
-const BodyParts = ({
-  bodyParts,
-  setBodyParts,
-  selectedBodyPart,
-  setSelectedBodyPart,
-}) => {
+const BodyParts = () => {
+  const { bodyParts } = useBodyParts();
+
   return (
     <Box
       sx={{
