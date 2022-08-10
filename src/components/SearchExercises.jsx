@@ -1,31 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { api } from '../utils/api';
 import { Button, Stack, TextField, Typography } from '@mui/material';
-import { exerciseOptions, fetchData } from '../utils/fetchData';
-import HorizontalScrollbar from './HorizontalScrollbar';
 
 const SearchExercises = ({ setExercises }) => {
   const [searchValue, setSearchValue] = useState('');
-  const [bodyParts, setBodyParts] = useState([]);
-
-  useEffect(() => {
-    async function loadBodyParts() {
-      const bodyData = await fetchData('/bodyPartList', exerciseOptions);
-      setBodyParts(['all', ...bodyData]);
-    }
-   // loadBodyParts();
-  }, []);
 
   const onSearch = async () => {
     if (searchValue.trim()) {
-      const exercises = await fetchData('', exerciseOptions);
-      const filtered = exercises.filter(
-        (exercise) =>
-          exercise.name.toLowerCase().includes(searchValue) ||
-          exercise.target.toLowerCase().includes(searchValue) ||
-          exercise.equipment.toLowerCase().includes(searchValue) ||
-          exercise.bodyPart.toLowerCase().includes(searchValue)
-      );
-      setExercises(filtered);
+      const res = await api.searchExercises(searchValue);
+      setExercises(res);
     }
   };
 
@@ -80,7 +63,6 @@ const SearchExercises = ({ setExercises }) => {
           Search
         </Button>
       </Stack>
-      <HorizontalScrollbar data={bodyParts} />
     </Stack>
   );
 };
