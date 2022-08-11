@@ -13,7 +13,7 @@ const Home = () => {
       <HeroBanner />
       <SearchExercises setExercises={setExercises} />
       <BodyParts />
-      <Exercises />
+      <Exercises exercises={exercises} />
       <Box height={300}></Box>
     </Box>
   );
