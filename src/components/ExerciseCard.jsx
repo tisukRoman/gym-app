@@ -2,7 +2,7 @@ import { Button, Stack, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const ExerciseCard = ({ exercise }) => {
-  const { bodyPart, equipment, gifUrl, id, name, target } = exercise;
+  const { id, name, target, bodyPart, gifUrl } = exercise;
 
   return (
     <Link to={`/exercises/${id}`} className='exercise-card'>
@@ -30,7 +30,7 @@ const ExerciseCard = ({ exercise }) => {
             borderRadius: 20,
           }}
         >
-          {bodyPart}
+          {target}
         </Button>
       </Stack>
       <Typography

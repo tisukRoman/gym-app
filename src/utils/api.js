@@ -16,6 +16,15 @@ export class api {
     );
   }
 
+  static async getBodyPartExercises(bodyPart) {
+    return fetch(`${EXERCISES_URL}/bodyPart/${bodyPart}`, {
+      headers: EXERCISES_HEADERS,
+      method: 'GET',
+    })
+      .then((response) => response.json())
+      .catch((err) => console.error(err));
+  }
+
   static async getAllExercises() {
     return fetch(EXERCISES_URL, {
       headers: EXERCISES_HEADERS,

@@ -1,11 +1,26 @@
+import { useState, useEffect } from 'react';
+import { useBodyParts } from '../hooks/useBodyParts';
+import { api } from '../utils/api';
 import { Box, Pagination, Stack, Typography } from '@mui/material';
-import { useState } from 'react';
 import ExerciseCard from './ExerciseCard';
 
 const ITEMS_PER_PAGE = 9;
 
-const Exercises = ({ exercises }) => {
+const Exercises = ({ exercises, setExercises }) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const { selectedBodyPart } = useBodyParts();
+
+  useEffect(() => {
+    async function loadBodyPartExercises() {
+      const res =
+        selectedBodyPart === 'all'
+          ? await api.getAllExercises()
+          : await api.getBodyPartExercises(selectedBodyPart);
+
+      setExercises(res);
+    }
+    loadBodyPartExercises();
+  }, [selectedBodyPart, setExercises]);
 
   const lastExerciseIndex = currentPage * ITEMS_PER_PAGE;
   const firstExerciseIndex = lastExerciseIndex - ITEMS_PER_PAGE;
