@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { api } from '../utils/api';
+import { scroll } from '../utils/scroll';
 import { Button, Stack, TextField, Typography } from '@mui/material';
 
 const SearchExercises = ({ setExercises }) => {
@@ -9,6 +10,7 @@ const SearchExercises = ({ setExercises }) => {
     if (searchValue.trim()) {
       const res = await api.searchExercises(searchValue);
       setExercises(res);
+      scroll(1900);
     }
   };
 

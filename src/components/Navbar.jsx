@@ -1,5 +1,6 @@
 import { Stack } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { scroll } from '../utils/scroll';
 import Logo from '../assets/images/Logo.png';
 
 const Navbar = () => {
@@ -43,15 +44,16 @@ const Navbar = () => {
         >
           Home
         </Link>
-        <a
-          href='#exercises'
+        <p
+          onClick={() => scroll(1000)}
           style={{
             color: '#3a1212',
             textDecoration: 'none',
+            cursor: 'pointer'
           }}
         >
           Exercises
-        </a>
+        </p>
       </Stack>
     </Stack>
   );

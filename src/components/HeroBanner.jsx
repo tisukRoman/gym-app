@@ -1,4 +1,5 @@
 import { Box, Button, Typography } from '@mui/material';
+import { scroll } from '../utils/scroll';
 import HeroBannerImage from '../assets/images/banner.png';
 import '../App.css';
 
@@ -35,7 +36,7 @@ const HeroBanner = () => {
         Check Out The Most Effective Exercises
       </Typography>
       <Button
-        href='#exercises'
+        onClick={() => scroll(1800)}
         variant='contained'
         color='error'
         sx={{
