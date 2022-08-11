@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useBodyParts } from '../hooks/useBodyParts';
 import { api } from '../utils/api';
+import { scroll } from '../utils/scroll';
 import { Box, Pagination, Stack, Typography } from '@mui/material';
 import ExerciseCard from './ExerciseCard';
 
@@ -31,7 +32,7 @@ const Exercises = ({ exercises, setExercises }) => {
 
   const onPageChange = (e, value) => {
     setCurrentPage(value);
-    window.scrollTo({ top: 1800, behavior: 'smooth' });
+    scroll(1800);
   };
 
   return (

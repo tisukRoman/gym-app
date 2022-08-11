@@ -34,6 +34,15 @@ export class api {
       .catch((err) => console.error(err));
   }
 
+  static async getExerciseById(id) {
+    return fetch(`${EXERCISES_URL}/exercise/${id}`, {
+      headers: EXERCISES_HEADERS,
+      method: 'GET',
+    })
+      .then((response) => response.json())
+      .catch((err) => console.error(err));
+  }
+
   static async getBodyParts() {
     return fetch(`${EXERCISES_URL}/bodyPartList`, {
       headers: EXERCISES_HEADERS,

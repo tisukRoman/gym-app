@@ -5,7 +5,7 @@ const ExerciseCard = ({ exercise }) => {
   const { id, name, target, bodyPart, gifUrl } = exercise;
 
   return (
-    <Link to={`/exercises/${id}`} className='exercise-card'>
+    <Link to={`/exercise/${id}`} className='exercise-card'>
       <img src={gifUrl} alt={name} loading='lazy' />
       <Stack direction='row'>
         <Button
