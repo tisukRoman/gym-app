@@ -2,15 +2,15 @@ import { Stack, Typography } from '@mui/material';
 import { useBodyParts } from '../hooks/useBodyParts';
 import GymIcon from '../assets/icons/gym.png';
 
-const BodyPart = ({ children }) => {
+const BodyPart = ({ item }) => {
   const { selectedBodyPart, setSelectedBodyPart } = useBodyParts();
 
   return (
     <Stack
-      onClick={() => setSelectedBodyPart(children)}
+      onClick={() => setSelectedBodyPart(item)}
       sx={{
         m: '0 40px',
-        borderBottom: selectedBodyPart === children ? '3px solid #ff2625' : '',
+        borderBottom: selectedBodyPart === item ? '3px solid #ff2625' : '',
         cursor: 'pointer',
         bgcolor: '#fff',
         width: 270,
@@ -25,7 +25,7 @@ const BodyPart = ({ children }) => {
     >
       <img
         src={GymIcon}
-        alt={children}
+        alt={item}
         style={{
           width: '60px',
           height: '60px',
@@ -37,7 +37,7 @@ const BodyPart = ({ children }) => {
         color='#3a1212'
         textTransform='capitalize'
       >
-        {children}
+        {item}
       </Typography>
     </Stack>
   );

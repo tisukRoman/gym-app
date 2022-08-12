@@ -27,7 +27,7 @@ const Details = ({ exerciseDetails }) => {
       sx={{
         flexDirection: { lg: 'row' },
         alignItems: { lg: 'flex-start', xs: 'center' },
-        gap: 5,
+        gap: 8,
         p: 4,
       }}
     >

@@ -4,19 +4,16 @@ import { api } from '../utils/api';
 import { Box } from '@mui/material';
 import Details from '../components/Details';
 import ExerciseVideos from '../components/ExerciseVideos';
+import SimilarTarget from '../components/SimilarTarget';
 
 const ExerciseDetail = () => {
   const { id } = useParams();
   const [details, setDetails] = useState();
-  const [videos, setVideos] = useState([]);
 
   useEffect(() => {
     async function loadDetails() {
       const exercise_data = await api.getExerciseById(id);
-      const search_query = `${exercise_data.name} exercise`;
-      const videos_data = await api.searchYoutubeVideos(search_query);
       setDetails(exercise_data);
-      setVideos(videos_data.contents);
     }
     loadDetails();
   }, [id]);
@@ -28,7 +25,8 @@ const ExerciseDetail = () => {
   return (
     <Box>
       <Details exerciseDetails={details} />
-      <ExerciseVideos videos={videos} name={details.name} />
+      <ExerciseVideos exerciseName={details.name} />
+      <SimilarTarget exerciseTarget={details.target} />
     </Box>
   );
 };

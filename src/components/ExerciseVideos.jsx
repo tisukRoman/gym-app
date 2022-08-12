@@ -1,6 +1,19 @@
+import { useEffect, useState } from 'react';
 import { Box, Stack, Typography } from '@mui/material';
+import { api } from '../utils/api';
 
-const ExerciseVideos = ({ videos, name }) => {
+const ExerciseVideos = ({ exerciseName }) => {
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    async function loadVideos() {
+      const search_query = `${exerciseName} exercise`;
+      const videos_data = await api.searchYoutubeVideos(search_query);
+      setVideos(videos_data.contents);
+    }
+    loadVideos();
+  }, [exerciseName]);
+
   return (
     <Box
       sx={{
@@ -11,7 +24,7 @@ const ExerciseVideos = ({ videos, name }) => {
       <Typography variant='h4' mb={4} fontSize={48} fontWeight={600}>
         Watch{' '}
         <span style={{ textTransform: 'capitalize', color: '#ff2625' }}>
-          {name}
+          {exerciseName}
         </span>{' '}
         exercise videos
       </Typography>

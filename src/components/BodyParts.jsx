@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import { useBodyParts } from '../hooks/useBodyParts';
-import HorizontalScrollbar from './HorizontalScrollbar';
+import BodyPartsScrollbar from './BodyPartsScrollbar';
 
 const BodyParts = () => {
   const { bodyParts } = useBodyParts();
@@ -13,7 +13,7 @@ const BodyParts = () => {
         p: [2, 2, 4],
       }}
     >
-      <HorizontalScrollbar data={bodyParts} />
+      <BodyPartsScrollbar data={bodyParts} />
     </Box>
   );
 };

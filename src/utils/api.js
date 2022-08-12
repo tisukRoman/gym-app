@@ -34,6 +34,18 @@ export class api {
     );
   }
 
+  static async getTargetExercises(target) {
+    return fetch(`${EXERCISES_URL}/target/${target}`, EXERCISES_OPTIONS)
+      .then((response) => response.json())
+      .catch((err) => console.error(err));
+  }
+
+  static async getEquipmentExercises(equipment) {
+    return fetch(`${EXERCISES_URL}/equipment/${equipment}`, EXERCISES_OPTIONS)
+      .then((response) => response.json())
+      .catch((err) => console.error(err));
+  }
+
   static async getBodyPartExercises(bodyPart) {
     return fetch(`${EXERCISES_URL}/bodyPart/${bodyPart}`, EXERCISES_OPTIONS)
       .then((response) => response.json())
