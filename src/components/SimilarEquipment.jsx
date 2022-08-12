@@ -3,16 +3,16 @@ import { Box, Stack, Typography } from '@mui/material';
 import ExercisesScrollbar from './ExercisesScrollbar';
 import { api } from '../utils/api';
 
-const SimilarTarget = ({ exerciseTarget }) => {
-  const [similarTargets, setSimilarTargets] = useState([]);
+const SimilarEquipment = ({ exerciseEquipment }) => {
+  const [similarEquipments, setSimilarEquipments] = useState([]);
 
   useEffect(() => {
-    async function loadSimilarTargets() {
-      const list = await api.getTargetExercises(exerciseTarget);
-      setSimilarTargets(list);
+    async function loadSimilarEquipments() {
+      const list = await api.getEquipmentExercises(exerciseEquipment);
+      setSimilarEquipments(list);
     }
-    loadSimilarTargets();
-  }, [exerciseTarget]);
+    loadSimilarEquipments();
+  }, [exerciseEquipment]);
 
   return (
     <Box
@@ -20,7 +20,6 @@ const SimilarTarget = ({ exerciseTarget }) => {
         position: 'relative',
         width: '100%',
         p: [2, 2, 4],
-        mb: 8,
       }}
     >
       <Typography
@@ -30,14 +29,14 @@ const SimilarTarget = ({ exerciseTarget }) => {
         fontWeight={600}
         textTransform='capitalize'
       >
-        other exercises for{' '}
-        <span style={{ color: '#ff2625' }}>{exerciseTarget}</span>
+        other exercises with{' '}
+        <span style={{ color: '#ff2625' }}>{exerciseEquipment}</span>
       </Typography>
       <Stack>
-        <ExercisesScrollbar data={similarTargets} />
+        <ExercisesScrollbar data={similarEquipments} />
       </Stack>
     </Box>
   );
 };
 
-export default SimilarTarget;
+export default SimilarEquipment;

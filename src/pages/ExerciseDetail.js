@@ -5,6 +5,7 @@ import { Box } from '@mui/material';
 import Details from '../components/Details';
 import ExerciseVideos from '../components/ExerciseVideos';
 import SimilarTarget from '../components/SimilarTarget';
+import SimilarEquipment from '../components/SimilarEquipment';
 
 const ExerciseDetail = () => {
   const { id } = useParams();
@@ -27,6 +28,7 @@ const ExerciseDetail = () => {
       <Details exerciseDetails={details} />
       <ExerciseVideos exerciseName={details.name} />
       <SimilarTarget exerciseTarget={details.target} />
+      <SimilarEquipment exerciseEquipment={details.equipment} />
     </Box>
   );
 };
